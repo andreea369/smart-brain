@@ -57,7 +57,7 @@ function App() {
     //set the image URL to the input value when the button is clicked
       setImageURL(input);
 
-      fetch('https://smart-brain-backend-aixh.onrender.com/imageurl', {
+      fetch('https://smart-brain-backend-osd9.onrender.com/imageurl', {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -67,7 +67,7 @@ function App() {
         .then(response => response.json())
         .then(result => {
           if (result){
-            fetch('https://smart-brain-backend-aixh.onrender.com/image', {
+            fetch('https://smart-brain-backend-osd9.onrender.com/image', {
               method: 'put',
               headers: {'Content-Type': 'application/json'},
               body: JSON.stringify({

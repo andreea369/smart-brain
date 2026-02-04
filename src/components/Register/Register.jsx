@@ -15,7 +15,7 @@ function Register({onRouteChange, loadUser})   {
         setRegisterPassword(event.target.value);
     }
     const onSubmitRegister = () =>{
-        fetch('https://smart-brain-backend-aixh.onrender.com/register', {
+        fetch('https://smart-brain-backend-osd9.onrender.com/register', {
             method: 'post',
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify({
