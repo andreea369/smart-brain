@@ -22,13 +22,22 @@ function SignIn({onRouteChange, loadUser}) {
                 password: signInPassword
             })
         })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
         .then(user=>{
             if (user.id) //does the user exist?
             {
                 loadUser(user);
                 onRouteChange('home');
             }
+        })
+        .catch(error => {
+            console.error('Sign in error:', error);
+            alert('Sign in failed: ' + error.message);
         })
      }
     

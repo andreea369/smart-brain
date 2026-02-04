@@ -24,12 +24,21 @@ function Register({onRouteChange, loadUser})   {
                 name:registerName
         })
     })
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
     .then(user=>{
         if(user.id ){
             loadUser(user);
             onRouteChange('home');
         }   
+    })
+    .catch(error => {
+        console.error('Register error:', error);
+        alert('Registration failed: ' + error.message);
     });
         
     }
